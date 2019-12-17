@@ -5,7 +5,7 @@ const Task = require('./models/task');
 const userRouter = require('../src/routers/user');
 const taskRouter = require('../src/routers/task');
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT;
 const sharp = require('sharp');
 const multer = require('multer');
 
