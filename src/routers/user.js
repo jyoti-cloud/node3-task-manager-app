@@ -97,7 +97,7 @@ router.patch('/users/me', auth, async (req, res) => {
     const allowedUpdates = ['name', 'email', 'password', 'age'];
     const isValidOperations = updates.every((update) => allowedUpdates.includes(update))
     if (!isValidOperations) {
-        res.status(400).send({ error: 'Invalid updates!' })
+        return res.status(400).send({ error: 'Invalid updates!' })
     }
     try {
         // const user = await User.findById(req.user._id);
@@ -109,7 +109,7 @@ router.patch('/users/me', auth, async (req, res) => {
         // }
         res.send(req.user);
     } catch (e) {
-        res.status(400).send(e);
+        res.status(401).send(e);
     }
 })
 
